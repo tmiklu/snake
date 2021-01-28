@@ -23,7 +23,7 @@ tail_y = random.choice(snake_move_y)
 
 # collision
 def is_collision(tail_x, tail_y, snake_x, snake_y):
-    distance = math.sqrt(math.pow(tail_x - snake_x, 2) + (math.pow(tail_y-snake_y, 2)))
+    distance = math.sqrt(math.pow(tail_x - snake_x, 2) + (math.pow(tail_y - snake_y, 2)))
     # distance from tail and snake
     if distance < 64:
         return True
@@ -95,7 +95,7 @@ while running:
                 pass
     
     collision = is_collision(tail_x, tail_y, snake_x, snake_y)
-    if collision:
+    if collision: # this return True or False from function is_collision
 
         tail_x = random.choice(snake_move_x)
         tail_y = random.choice(snake_move_y)
