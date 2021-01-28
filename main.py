@@ -37,22 +37,38 @@ while running:
         
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                snake_move_x[index_x]
-                index_x += 1
+                if snake_move_x[index_x] == 576:
+                    snake_move_x[9]
+                else:
+                    snake_move_x[index_x]
+                    print(snake_move_x[index_x])
+                    index_x += 1
             if event.key == pygame.K_LEFT:
-                index_x += -1
-                snake_move_x[index_x]
+                if snake_move_x[index_x] == 0:
+                    snake_move_x[0]
+                else:
+                    index_x += -1
+                    snake_move_x[index_x]
+
             if event.key == pygame.K_DOWN:
-                index_y += 1
-                snake_move_y[index_y]
+                if snake_move_y[index_y] == 576:
+                    snake_move_y[9]
+                else:
+                    index_y += 1
+                    snake_move_y[index_y]
+
             if event.key == pygame.K_UP:
-                index_y += -1
-                snake_move_y[index_y]
+                if snake_move_y[index_y] == 0:
+                    snake_move_y[0]
+                else:
+                    index_y += -1
+                    snake_move_y[index_y]
         if event.type == pygame.KEYUP:
            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 #snake_move = 0
                 pass
 
+  
     snake_x = snake_move_x[index_x]
     snake_y = snake_move_y[index_y]
 
