@@ -20,6 +20,11 @@ tail_img = pygame.image.load('snake/tail.png')
 tail_x = random.choice(snake_move_x)
 tail_y = random.choice(snake_move_y)
 
+#
+##
+### functions
+##
+#
 def snake(x, y):
     screen.blit(snake_img, (x, y))
 
