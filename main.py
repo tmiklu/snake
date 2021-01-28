@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 
 pygame.init()
 
@@ -19,6 +20,15 @@ snake_move_y = [0, 64, 128, 192, 256, 320, 384, 448, 512, 576]
 tail_img = pygame.image.load('snake/tail.png')
 tail_x = random.choice(snake_move_x)
 tail_y = random.choice(snake_move_y)
+
+# collision
+def is_collision(tail_x, tail_y, snake_x, snake_y):
+    distance = math.sqrt(math.pow(tail_x - snake_x, 2) + (math.pow(tail_y-snake_y, 2)))
+    # distance from tail and snake
+    if distance < 64:
+        return True
+    else:
+        return False
 
 #
 ##
@@ -83,6 +93,12 @@ while running:
            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 #snake_move = 0
                 pass
+    
+    collision = is_collision(tail_x, tail_y, snake_x, snake_y)
+    if collision:
+
+        tail_x = random.choice(snake_move_x)
+        tail_y = random.choice(snake_move_y)
 
   
     snake_x = snake_move_x[index_x]
