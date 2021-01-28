@@ -49,6 +49,7 @@ while running:
                 else:
                     index_x += -1
                     snake_move_x[index_x]
+                    print(snake_move_x[index_x])
 
             if event.key == pygame.K_DOWN:
                 if snake_move_y[index_y] == 576:
@@ -56,6 +57,7 @@ while running:
                 else:
                     index_y += 1
                     snake_move_y[index_y]
+                    print(snake_move_y[index_y])
 
             if event.key == pygame.K_UP:
                 if snake_move_y[index_y] == 0:
@@ -63,6 +65,7 @@ while running:
                 else:
                     index_y += -1
                     snake_move_y[index_y]
+                    print(snake_move_y[index_y])
         if event.type == pygame.KEYUP:
            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 #snake_move = 0
