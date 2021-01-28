@@ -1,4 +1,5 @@
 import pygame
+import random
 
 pygame.init()
 
@@ -15,9 +16,15 @@ snake_y = 0
 snake_move_x = [0, 64, 128, 192, 256, 320, 384, 448, 512, 576]
 snake_move_y = [0, 64, 128, 192, 256, 320, 384, 448, 512, 576]
 
+tail_img = pygame.image.load('snake/tail.png')
+tail_x = random.choice(snake_move_x)
+tail_y = random.choice(snake_move_y)
 
 def snake(x, y):
     screen.blit(snake_img, (x, y))
+
+def tail(x, y):
+    screen.blit(tail_img, (x, y))
 
 # background color
 GREEN = (0, 255, 0)
@@ -77,5 +84,6 @@ while running:
     snake_y = snake_move_y[index_y]
 
     snake(snake_x, snake_y)
+    tail(tail_x, tail_y)
     pygame.display.update()
   
